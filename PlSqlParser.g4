@@ -3961,8 +3961,9 @@ truncate_table
     : TRUNCATE TABLE tableview_name PURGE? SEMICOLON
     ;
 
+// https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DROP-TABLE.html
 drop_table
-    : DROP TABLE tableview_name PURGE? SEMICOLON
+    : DROP TABLE tableview_name (CASCADE CONSTRAINTS)? PURGE? SEMICOLON
     ;
 
 // https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DROP-TABLESPACE.html
