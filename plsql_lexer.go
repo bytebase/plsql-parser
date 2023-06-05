@@ -1,13 +1,12 @@
-// Code generated from PlSqlLexer.g4 by ANTLR 4.12.0. DO NOT EDIT.
+// Code generated from PlSqlLexer.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser
 
 import (
 	"fmt"
+	"github.com/antlr4-go/antlr/v4"
 	"sync"
 	"unicode"
-
-	"github.com/antlr/antlr4/runtime/Go/antlr/v4"
 )
 
 // Suppress unused import error
@@ -22,28 +21,28 @@ type PlSqlLexer struct {
 	// TODO: EOF string
 }
 
-var plsqllexerLexerStaticData struct {
+var PlSqlLexerLexerStaticData struct {
 	once                   sync.Once
 	serializedATN          []int32
-	channelNames           []string
-	modeNames              []string
-	literalNames           []string
-	symbolicNames          []string
-	ruleNames              []string
-	predictionContextCache *antlr.PredictionContextCache
+	ChannelNames           []string
+	ModeNames              []string
+	LiteralNames           []string
+	SymbolicNames          []string
+	RuleNames              []string
+	PredictionContextCache *antlr.PredictionContextCache
 	atn                    *antlr.ATN
 	decisionToDFA          []*antlr.DFA
 }
 
 func plsqllexerLexerInit() {
-	staticData := &plsqllexerLexerStaticData
-	staticData.channelNames = []string{
+	staticData := &PlSqlLexerLexerStaticData
+	staticData.ChannelNames = []string{
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN",
 	}
-	staticData.modeNames = []string{
+	staticData.ModeNames = []string{
 		"DEFAULT_MODE",
 	}
-	staticData.literalNames = []string{
+	staticData.LiteralNames = []string{
 		"", "'ABORT'", "'ABS'", "'ABSENT'", "'ACCESS'", "'ACCESSED'", "'ACCOUNT'",
 		"'ACL'", "'ACOS'", "'ACROSS'", "'ACTION'", "'ACTIONS'", "'ACTIVATE'",
 		"'ACTIVE'", "'ACTIVE_COMPONENT'", "'ACTIVE_DATA'", "'ACTIVE_FUNCTION'",
@@ -535,7 +534,7 @@ func plsqllexerLexerInit() {
 		"", "", "'^'", "'~'", "'!'", "'>'", "'<'", "':'", "';'", "'|'", "'='",
 		"'['", "']'", "'_'",
 	}
-	staticData.symbolicNames = []string{
+	staticData.SymbolicNames = []string{
 		"", "ABORT", "ABS", "ABSENT", "ACCESS", "ACCESSED", "ACCOUNT", "ACL",
 		"ACOS", "ACROSS", "ACTION", "ACTIONS", "ACTIVATE", "ACTIVE", "ACTIVE_COMPONENT",
 		"ACTIVE_DATA", "ACTIVE_FUNCTION", "ACTIVE_TAG", "ACTIVITY", "ADAPTIVE_PLAN",
@@ -982,7 +981,7 @@ func plsqllexerLexerInit() {
 		"MULTI_LINE_COMMENT", "REMARK_COMMENT", "PROMPT_MESSAGE", "START_CMD",
 		"REGULAR_ID", "SPACES",
 	}
-	staticData.ruleNames = []string{
+	staticData.RuleNames = []string{
 		"ABORT", "ABS", "ABSENT", "ACCESS", "ACCESSED", "ACCOUNT", "ACL", "ACOS",
 		"ACROSS", "ACTION", "ACTIONS", "ACTIVATE", "ACTIVE", "ACTIVE_COMPONENT",
 		"ACTIVE_DATA", "ACTIVE_FUNCTION", "ACTIVE_TAG", "ACTIVITY", "ADAPTIVE_PLAN",
@@ -1432,7 +1431,7 @@ func plsqllexerLexerInit() {
 		"NEWLINE_EOF", "QUESTION_MARK", "SIMPLE_LETTER", "FLOAT_FRAGMENT", "NEWLINE",
 		"SPACE",
 	}
-	staticData.predictionContextCache = antlr.NewPredictionContextCache()
+	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
 		4, 0, 2354, 30931, 6, -1, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7,
 		3, 2, 4, 7, 4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7,
@@ -16337,7 +16336,7 @@ func plsqllexerLexerInit() {
 // NewPlSqlLexer(). You can call this function if you wish to initialize the static state ahead
 // of time.
 func PlSqlLexerInit() {
-	staticData := &plsqllexerLexerStaticData
+	staticData := &PlSqlLexerLexerStaticData
 	staticData.once.Do(plsqllexerLexerInit)
 }
 
@@ -16346,13 +16345,13 @@ func NewPlSqlLexer(input antlr.CharStream) *PlSqlLexer {
 	PlSqlLexerInit()
 	l := new(PlSqlLexer)
 	l.BaseLexer = antlr.NewBaseLexer(input)
-	staticData := &plsqllexerLexerStaticData
-	l.Interpreter = antlr.NewLexerATNSimulator(l, staticData.atn, staticData.decisionToDFA, staticData.predictionContextCache)
-	l.channelNames = staticData.channelNames
-	l.modeNames = staticData.modeNames
-	l.RuleNames = staticData.ruleNames
-	l.LiteralNames = staticData.literalNames
-	l.SymbolicNames = staticData.symbolicNames
+	staticData := &PlSqlLexerLexerStaticData
+	l.Interpreter = antlr.NewLexerATNSimulator(l, staticData.atn, staticData.decisionToDFA, staticData.PredictionContextCache)
+	l.channelNames = staticData.ChannelNames
+	l.modeNames = staticData.ModeNames
+	l.RuleNames = staticData.RuleNames
+	l.LiteralNames = staticData.LiteralNames
+	l.SymbolicNames = staticData.SymbolicNames
 	l.GrammarFileName = "PlSqlLexer.g4"
 	// TODO: l.EOF = antlr.TokenEOF
 
@@ -18734,12 +18733,9 @@ func (l *PlSqlLexer) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex in
 }
 
 func (p *PlSqlLexer) REMARK_COMMENT_Sempred(localctx antlr.RuleContext, predIndex int) bool {
-	this := p
-	_ = this
-
 	switch predIndex {
 	case 0:
-		return this.IsNewlineAtPos(-4)
+		return p.IsNewlineAtPos(-4)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))
@@ -18747,12 +18743,9 @@ func (p *PlSqlLexer) REMARK_COMMENT_Sempred(localctx antlr.RuleContext, predInde
 }
 
 func (p *PlSqlLexer) PROMPT_MESSAGE_Sempred(localctx antlr.RuleContext, predIndex int) bool {
-	this := p
-	_ = this
-
 	switch predIndex {
 	case 1:
-		return this.IsNewlineAtPos(-4)
+		return p.IsNewlineAtPos(-4)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))
@@ -18760,12 +18753,9 @@ func (p *PlSqlLexer) PROMPT_MESSAGE_Sempred(localctx antlr.RuleContext, predInde
 }
 
 func (p *PlSqlLexer) START_CMD_Sempred(localctx antlr.RuleContext, predIndex int) bool {
-	this := p
-	_ = this
-
 	switch predIndex {
 	case 2:
-		return this.IsNewlineAtPos(-2)
+		return p.IsNewlineAtPos(-2)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))
