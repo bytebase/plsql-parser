@@ -26,6 +26,12 @@ func (s *BasePlSqlParserListener) EnterSql_script(ctx *Sql_scriptContext) {}
 // ExitSql_script is called when production sql_script is exited.
 func (s *BasePlSqlParserListener) ExitSql_script(ctx *Sql_scriptContext) {}
 
+// EnterSingle_sql is called when production single_sql is entered.
+func (s *BasePlSqlParserListener) EnterSingle_sql(ctx *Single_sqlContext) {}
+
+// ExitSingle_sql is called when production single_sql is exited.
+func (s *BasePlSqlParserListener) ExitSingle_sql(ctx *Single_sqlContext) {}
+
 // EnterUnit_statement is called when production unit_statement is entered.
 func (s *BasePlSqlParserListener) EnterUnit_statement(ctx *Unit_statementContext) {}
 

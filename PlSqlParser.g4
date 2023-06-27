@@ -35,6 +35,11 @@ sql_script
         | SEMICOLON
       )* EOF
     ;
+    
+single_sql
+    : (sql_plus_command | unit_statement) (SEMICOLON? | EOF)
+    | EOF
+    ;
 
 unit_statement
     : alter_analytic_view

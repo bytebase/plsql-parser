@@ -11,6 +11,10 @@ func (v *BasePlSqlParserVisitor) VisitSql_script(ctx *Sql_scriptContext) interfa
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitSingle_sql(ctx *Single_sqlContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitUnit_statement(ctx *Unit_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

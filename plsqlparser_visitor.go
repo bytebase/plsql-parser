@@ -10,6 +10,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#sql_script.
 	VisitSql_script(ctx *Sql_scriptContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#single_sql.
+	VisitSingle_sql(ctx *Single_sqlContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#unit_statement.
 	VisitUnit_statement(ctx *Unit_statementContext) interface{}
 

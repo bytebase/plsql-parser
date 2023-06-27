@@ -10,6 +10,9 @@ type PlSqlParserListener interface {
 	// EnterSql_script is called when entering the sql_script production.
 	EnterSql_script(c *Sql_scriptContext)
 
+	// EnterSingle_sql is called when entering the single_sql production.
+	EnterSingle_sql(c *Single_sqlContext)
+
 	// EnterUnit_statement is called when entering the unit_statement production.
 	EnterUnit_statement(c *Unit_statementContext)
 
@@ -3492,6 +3495,9 @@ type PlSqlParserListener interface {
 
 	// ExitSql_script is called when exiting the sql_script production.
 	ExitSql_script(c *Sql_scriptContext)
+
+	// ExitSingle_sql is called when exiting the single_sql production.
+	ExitSingle_sql(c *Single_sqlContext)
 
 	// ExitUnit_statement is called when exiting the unit_statement production.
 	ExitUnit_statement(c *Unit_statementContext)
