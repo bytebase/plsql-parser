@@ -1,6 +1,8 @@
 package parser_test
 
 import (
+	"bufio"
+	"fmt"
 	"os"
 	"path"
 	"strings"
@@ -46,6 +48,10 @@ func TestPLSQLParser(t *testing.T) {
 	files := append(examples, examplesSQLScript...)
 
 	for i, file := range files {
+		if file.Name() != "1.sql" {
+			// continue
+			break
+		}
 		if strings.HasSuffix(file.Name(), ".sql.tree") {
 			continue
 		}
@@ -56,29 +62,64 @@ func TestPLSQLParser(t *testing.T) {
 			filePath = path.Join("examples-sql-script", file.Name())
 		}
 		t.Run(filePath, func(t *testing.T) {
-			t.Parallel()
-			input, err := antlr.NewFileStream(filePath)
+			// t.Parallel()
+			// input, err := antlr.NewFileStream(filePath)
+			// require.NoError(t, err)
+
+			// open filePath and read each line.
+			f, err := os.Open(filePath)
 			require.NoError(t, err)
+			defer f.Close()
 
-			lexer := plsqlparser.NewPlSqlLexer(input)
+			scanner := bufio.NewScanner(f)
+			total := 0
 
-			stream := antlr.NewCommonTokenStream(lexer, 0)
-			p := plsqlparser.NewPlSqlParser(stream)
-			p.SetVersion12(true)
+			// Read each line of the file
+			for scanner.Scan() {
+				// Print the line
+				text := scanner.Text()
+				// lexer := plsqlparser.NewPlSqlLexer(input)
+				lexer := plsqlparser.NewPlSqlLexer(antlr.NewInputStream(text))
 
-			lexerErrors := &CustomErrorListener{}
-			lexer.RemoveErrorListeners()
-			lexer.AddErrorListener(lexerErrors)
+				stream := antlr.NewCommonTokenStream(lexer, 0)
+				p := plsqlparser.NewPlSqlParser(stream)
+				p.SetVersion12(true)
 
-			parserErrors := &CustomErrorListener{}
-			p.RemoveErrorListeners()
-			p.AddErrorListener(parserErrors)
+				lexerErrors := &CustomErrorListener{}
+				lexer.RemoveErrorListeners()
+				lexer.AddErrorListener(lexerErrors)
 
-			p.BuildParseTrees = true
-			_ = p.Sql_script()
+				parserErrors := &CustomErrorListener{}
+				p.RemoveErrorListeners()
+				p.AddErrorListener(parserErrors)
 
-			require.Equal(t, 0, lexerErrors.errors)
-			require.Equal(t, 0, parserErrors.errors)
+				// var trees []plsqlparser.ISingle_sqlContext
+				p.BuildParseTrees = true
+				// number := 0
+				// last := 0
+				// fmt.Println("Start")
+				_ = p.Sql_script()
+				// fmt.Println(tree.GetStop().GetTokenIndex())
+				// for {
+				// 	tree := p.Single_sql()
+				// 	trees = append(trees, tree)
+				// 	number++
+				// 	if last == tree.GetStop().GetTokenIndex() {
+				// 		break
+				// 	}
+				// 	last = tree.GetStop().GetTokenIndex()
+				// 	fmt.Println(last, " total: ", number)
+				// 	if tree.GetStop().GetTokenType() == antlr.TokenEOF {
+				// 		break
+				// 	}
+				// }
+				// fmt.Println(trees[len(trees)-1].GetStop().GetTokenIndex())
+				require.Equal(t, 0, lexerErrors.errors)
+				require.Equal(t, 0, parserErrors.errors)
+				total++
+			}
+
+			fmt.Println(total)
 		})
 	}
 }
