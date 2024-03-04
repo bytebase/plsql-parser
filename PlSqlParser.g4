@@ -1478,13 +1478,17 @@ cluster_name
     ;
 
 table_index_clause
-    : tableview_name table_alias? '(' index_expr (ASC | DESC)?  (',' index_expr (ASC | DESC)? )* ')'
+    : tableview_name table_alias? '(' index_expr_option  (',' index_expr_option)* ')'
           index_properties?
     ;
 bitmap_join_index_clause
     : tableview_name '(' (tableview_name | table_alias)? column_name (ASC | DESC)?  (',' (tableview_name | table_alias)? column_name (ASC | DESC)? )* ')'
         FROM tableview_name table_alias (',' tableview_name table_alias)*
         where_clause local_partitioned_index? index_attributes?
+    ;
+    
+index_expr_option
+    : index_expr (ASC | DESC)?
     ;
 
 index_expr

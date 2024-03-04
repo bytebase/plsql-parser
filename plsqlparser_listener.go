@@ -709,6 +709,9 @@ type PlSqlParserListener interface {
 	// EnterBitmap_join_index_clause is called when entering the bitmap_join_index_clause production.
 	EnterBitmap_join_index_clause(c *Bitmap_join_index_clauseContext)
 
+	// EnterIndex_expr_option is called when entering the index_expr_option production.
+	EnterIndex_expr_option(c *Index_expr_optionContext)
+
 	// EnterIndex_expr is called when entering the index_expr production.
 	EnterIndex_expr(c *Index_exprContext)
 
@@ -4191,6 +4194,9 @@ type PlSqlParserListener interface {
 
 	// ExitBitmap_join_index_clause is called when exiting the bitmap_join_index_clause production.
 	ExitBitmap_join_index_clause(c *Bitmap_join_index_clauseContext)
+
+	// ExitIndex_expr_option is called when exiting the index_expr_option production.
+	ExitIndex_expr_option(c *Index_expr_optionContext)
 
 	// ExitIndex_expr is called when exiting the index_expr production.
 	ExitIndex_expr(c *Index_exprContext)
