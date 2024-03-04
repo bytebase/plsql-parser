@@ -709,6 +709,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#bitmap_join_index_clause.
 	VisitBitmap_join_index_clause(ctx *Bitmap_join_index_clauseContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#index_expr_option.
+	VisitIndex_expr_option(ctx *Index_expr_optionContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#index_expr.
 	VisitIndex_expr(ctx *Index_exprContext) interface{}
 

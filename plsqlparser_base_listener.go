@@ -1466,6 +1466,12 @@ func (s *BasePlSqlParserListener) EnterBitmap_join_index_clause(ctx *Bitmap_join
 func (s *BasePlSqlParserListener) ExitBitmap_join_index_clause(ctx *Bitmap_join_index_clauseContext) {
 }
 
+// EnterIndex_expr_option is called when production index_expr_option is entered.
+func (s *BasePlSqlParserListener) EnterIndex_expr_option(ctx *Index_expr_optionContext) {}
+
+// ExitIndex_expr_option is called when production index_expr_option is exited.
+func (s *BasePlSqlParserListener) ExitIndex_expr_option(ctx *Index_expr_optionContext) {}
+
 // EnterIndex_expr is called when production index_expr is entered.
 func (s *BasePlSqlParserListener) EnterIndex_expr(ctx *Index_exprContext) {}
 

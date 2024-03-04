@@ -943,6 +943,10 @@ func (v *BasePlSqlParserVisitor) VisitBitmap_join_index_clause(ctx *Bitmap_join_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitIndex_expr_option(ctx *Index_expr_optionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitIndex_expr(ctx *Index_exprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
