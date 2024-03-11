@@ -1,7 +1,8 @@
-// Code generated from PlSqlParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from PlSqlParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
+
 
 // A complete Visitor for a parse tree produced by PlSqlParser.
 type PlSqlParserVisitor interface {
@@ -1392,6 +1393,9 @@ type PlSqlParserVisitor interface {
 
 	// Visit a parse tree produced by PlSqlParser#build_clause.
 	VisitBuild_clause(ctx *Build_clauseContext) interface{}
+
+	// Visit a parse tree produced by PlSqlParser#partial_index_clause.
+	VisitPartial_index_clause(ctx *Partial_index_clauseContext) interface{}
 
 	// Visit a parse tree produced by PlSqlParser#parallel_clause.
 	VisitParallel_clause(ctx *Parallel_clauseContext) interface{}
@@ -3492,4 +3496,5 @@ type PlSqlParserVisitor interface {
 
 	// Visit a parse tree produced by PlSqlParser#numeric_function_name.
 	VisitNumeric_function_name(ctx *Numeric_function_nameContext) interface{}
+
 }

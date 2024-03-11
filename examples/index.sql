@@ -18,6 +18,10 @@ CREATE INDEX ord_customer_ix_demo
    NOSORT
    NOLOGGING;
 
+CREATE INDEX idx_emp_dept_id ON emp(department_id) PARALLEL 6 ONLINE;
+
+CREATE INDEX sales_local_idx ON SALES(product_id) LOCAL;
+
 CREATE INDEX idx_personnel ON CLUSTER personnel;
 
 CREATE INDEX upper_ix ON employees (UPPER(last_name));

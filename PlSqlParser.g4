@@ -1520,12 +1520,14 @@ local_xmlindex_clause
     ;
 
 global_partitioned_index
-    : GLOBAL PARTITION BY (RANGE '(' column_name (',' column_name)* ')' '(' index_partitioning_clause (',' index_partitioning_clause)* ')'
-                          | HASH '(' column_name (',' column_name)* ')'
+    : GLOBAL (
+                PARTITION BY (RANGE '(' column_name (',' column_name)* ')' '(' index_partitioning_clause (',' index_partitioning_clause)* ')'
+                            | HASH '(' column_name (',' column_name)* ')'
                                             (individual_hash_partitions
                                             | hash_partitions_by_quantity
                                             )
-                          )
+                             )
+             )?
     ;
 
 index_partitioning_clause
@@ -2931,6 +2933,10 @@ maxsize_clause
 
 build_clause
     : BUILD (IMMEDIATE | DEFERRED)
+    ;
+
+partial_index_clause
+    : INDEXING (PARTIAL | FULL)
     ;
 
 parallel_clause
@@ -4830,11 +4836,13 @@ using_index_clause
 index_attributes
     : ( physical_attributes_clause
       | logging_clause
+      | ONLINE
       | TABLESPACE (tablespace | DEFAULT)
       | key_compression
       | sort_or_nosort
       | REVERSE
       | visible_or_invisible
+      | partial_index_clause
       | parallel_clause
       )+
     ;
