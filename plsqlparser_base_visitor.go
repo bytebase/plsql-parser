@@ -1,7 +1,8 @@
-// Code generated from PlSqlParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from PlSqlParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
+
 
 type BasePlSqlParserVisitor struct {
 	*antlr.BaseParseTreeVisitor
@@ -1852,6 +1853,10 @@ func (v *BasePlSqlParserVisitor) VisitMaxsize_clause(ctx *Maxsize_clauseContext)
 }
 
 func (v *BasePlSqlParserVisitor) VisitBuild_clause(ctx *Build_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPartial_index_clause(ctx *Partial_index_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

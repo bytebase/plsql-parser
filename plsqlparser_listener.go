@@ -1,7 +1,8 @@
-// Code generated from PlSqlParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from PlSqlParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
+
 
 // PlSqlParserListener is a complete listener for a parse tree produced by PlSqlParser.
 type PlSqlParserListener interface {
@@ -1392,6 +1393,9 @@ type PlSqlParserListener interface {
 
 	// EnterBuild_clause is called when entering the build_clause production.
 	EnterBuild_clause(c *Build_clauseContext)
+
+	// EnterPartial_index_clause is called when entering the partial_index_clause production.
+	EnterPartial_index_clause(c *Partial_index_clauseContext)
 
 	// EnterParallel_clause is called when entering the parallel_clause production.
 	EnterParallel_clause(c *Parallel_clauseContext)
@@ -4878,6 +4882,9 @@ type PlSqlParserListener interface {
 
 	// ExitBuild_clause is called when exiting the build_clause production.
 	ExitBuild_clause(c *Build_clauseContext)
+
+	// ExitPartial_index_clause is called when exiting the partial_index_clause production.
+	ExitPartial_index_clause(c *Partial_index_clauseContext)
 
 	// ExitParallel_clause is called when exiting the parallel_clause production.
 	ExitParallel_clause(c *Parallel_clauseContext)
