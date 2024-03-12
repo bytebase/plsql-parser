@@ -2463,7 +2463,7 @@ START_CMD
 
 REGULAR_ID: SIMPLE_LETTER (SIMPLE_LETTER | '$' | '_' | '#' | [0-9])*;
 
-SPACES: [ \t\r\n]+ -> channel(HIDDEN);
+SPACES: [ \t\r\n] -> channel(HIDDEN);
 
 // Fragment rules
 
