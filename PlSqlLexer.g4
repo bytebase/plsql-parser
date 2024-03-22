@@ -2387,7 +2387,36 @@ CHAR_STRING: '\''  (~('\'' | '\r' | '\n') | '\'' '\'' | NEWLINE)* '\'';
 
 // See https://livesql.oracle.com/apex/livesql/file/content_CIREYU9EA54EOKQ7LAMZKRF6P.html
 // TODO: context sensitive string quotes (any characted after quote)
-CHAR_STRING_PERL    : 'Q' '\'' (QS_ANGLE | QS_BRACE | QS_BRACK | QS_PAREN | QS_EXCLAM | QS_SHARP | QS_QUOTE | QS_DQUOTE) '\'' -> type(CHAR_STRING);
+CHAR_STRING_PERL    : 'Q' '\'' (
+    QS_ANGLE
+    | QS_BRACE
+    | QS_BRACK
+    | QS_PAREN
+    | QS_EXCLAM
+    | QS_SHARP
+    | QS_QUOTE
+    | QS_DQUOTE
+    | QS_BACKSLASH 
+    | QS_AMPERSAND
+    | QS_ATSIGN
+    | QS_BACKTICK
+    | QS_CARET
+    | QS_COLON
+    | QS_COMMA
+    | QS_ASTERISK
+    | QS_DOLLAR
+    | QS_EQUAL
+    | QS_MINUS
+    | QS_PERCENT
+    | QS_PLUS
+    | QS_PERIOD
+    | QS_SEMICOLON
+    | QS_SLASH
+    | QS_UNDERSCORE
+    | QS_PIPE
+    | QS_TILDE
+    | QS_QUESTION
+    ) '\'' -> type(CHAR_STRING);
 fragment QS_ANGLE   : '<' .*? '>';
 fragment QS_BRACE   : '{' .*? '}';
 fragment QS_BRACK   : '[' .*? ']';
