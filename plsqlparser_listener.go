@@ -3,7 +3,6 @@
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
 
-
 // PlSqlParserListener is a complete listener for a parse tree produced by PlSqlParser.
 type PlSqlParserListener interface {
 	antlr.ParseTreeListener

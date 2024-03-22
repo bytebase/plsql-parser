@@ -2492,7 +2492,7 @@ create_directory
     ;
 
 directory_name
-    : regular_id
+    : id_expression
     ;
 
 directory_path

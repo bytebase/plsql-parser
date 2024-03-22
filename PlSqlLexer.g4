@@ -2396,6 +2396,26 @@ fragment QS_EXCLAM  : '!' .*? '!';
 fragment QS_SHARP   : '#' .*? '#';
 fragment QS_QUOTE   : '\'' .*? '\'';
 fragment QS_DQUOTE  : '"' .*? '"';
+fragment QS_BACKSLASH   : '\\' .*? '\\';
+fragment QS_AMPERSAND  : '&' .*? '&';
+fragment QS_ATSIGN  : '@' .*? '@';
+fragment QS_BACKTICK  : '`' .*? '`';
+fragment QS_CARET  : '^' .*? '^';
+fragment QS_COLON  : ':' .*? ':';
+fragment QS_COMMA  : ',' .*? ',';
+fragment QS_ASTERISK  : '*' .*? '*';
+fragment QS_DOLLAR  : '$' .*? '$';
+fragment QS_EQUAL  : '=' .*? '=';
+fragment QS_MINUS  : '-' .*? '-';
+fragment QS_PERCENT  : '%' .*? '%';
+fragment QS_PLUS  : '+' .*? '+';
+fragment QS_PERIOD  : '.' .*? '.';
+fragment QS_SEMICOLON  : ';' .*? ';';
+fragment QS_SLASH  : '/' .*? '/';
+fragment QS_UNDERSCORE  : '_' .*? '_';
+fragment QS_PIPE  : '|' .*? '|';
+fragment QS_TILDE  : '~' .*? '~';
+fragment QS_QUESTION  : '?' .*? '?';
 
 DELIMITED_ID: '"' (~('"' | '\r' | '\n') | '"' '"')+ '"' ;
 

@@ -3,7 +3,6 @@
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
 
-
 // A complete Visitor for a parse tree produced by PlSqlParser.
 type PlSqlParserVisitor interface {
 	antlr.ParseTreeVisitor
@@ -3496,5 +3495,4 @@ type PlSqlParserVisitor interface {
 
 	// Visit a parse tree produced by PlSqlParser#numeric_function_name.
 	VisitNumeric_function_name(ctx *Numeric_function_nameContext) interface{}
-
 }
