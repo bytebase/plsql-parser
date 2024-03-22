@@ -3,7 +3,6 @@
 package parser // PlSqlParser
 import "github.com/antlr4-go/antlr/v4"
 
-
 type BasePlSqlParserVisitor struct {
 	*antlr.BaseParseTreeVisitor
 }
