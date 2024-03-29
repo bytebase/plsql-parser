@@ -3905,8 +3905,198 @@ external_table_data_props
         (LOCATION '(' directory_name COLON CHAR_STRING (',' directory_name COLON CHAR_STRING)* ')' )?
     ;
 
+// https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/oracle-external-tables.html
 opaque_format_spec
-    : //TODO https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/oracle-external-tables.html
+    : record_format_info? field_definitions? column_transforms?
+    ;
+    
+record_format_info
+    : RECORDS   (
+                    (FIXED | VARIABLE) UNSIGNED_INTEGER
+                    | DELIMITED BY (DETECTED? NEWLINE_ | CHAR_STRING)
+                    | XMLTAG CHAR_STRING
+                ) et_record_spec_options?
+    ;
+    
+et_record_spec_options
+    : et_record_spec_option+
+    ;
+    
+et_record_spec_option
+    : CHARACTERSET char_set_name
+    | PREPROCESSOR (directory_spec COLON)? file_spec
+    | (LANGUAGE | TERRITORY) CHAR_STRING
+    | DATA IS (LITTLE | BIG) ENDIAN
+    | BYTEORDERMARK (CHECK | NOCHECK)
+    | STRING SIZES ARE IN (BYTES | CHARACTERS)
+    | LOAD WHEN condition
+    | et_output_files
+    | READSIZE UNSIGNED_INTEGER
+    | DISABLE_DIRECTORY_LINK_CHECK
+    | (DATE_CACHE | SKIP_) UNSIGNED_INTEGER
+    | FIELD_NAMES (
+                    FIRST FILE IGNORE?
+                    | ALL FILES IGNORE?
+                    | NONE
+                  )
+    | IO_OPTIONS '(' (DIRECTIO | NODIRECTIO) ')'
+    | (DNFS_ENABLE | DNFS_DISABLE)
+    | DNFS_READBUFFERS UNSIGNED_INTEGER
+    ;
+    
+et_output_files
+    : et_output_file+
+    ;
+
+et_output_file
+    : NOBADFILE
+    | BADFILE (directory_spec COLON)? file_spec?
+    | NODISCARDFILE
+    | DISCARDFILE (directory_spec COLON)? file_spec?
+    | NOLOGFILE
+    | LOGFILE (directory_spec COLON)? file_spec?
+    ;
+    
+directory_spec
+    : directory_name
+    ;
+    
+file_spec
+    : CHAR_STRING
+    ;
+    
+field_definitions
+    : FIELDS field_options? field_list?
+    ;
+    
+field_options
+    : field_option+
+    ;
+
+field_option
+    : IGNORE_CHARS_AFTER_EOR
+      | CSV ((WITH | WITHOUT) EMBEDDED)?
+      | delim_spec
+      | trim_spec
+      | ALL FIELDS OVERRIDE THESE FIELDS
+      | MISSING FIELD VALUES ARE NULL_
+      | REJECT ROWS WITH ALL NULL_ FIELDS
+      | field_date_format+
+      | (NULLIF | NONULLIF)
+    ;
+    
+field_list
+    : '(' field_item (',' field_item)* ')'
+    ;
+    
+field_item
+    : field_name pos_spec? datatype_spec? init_spec? lls_clause?
+    ;
+    
+field_name
+    : column_name
+    ;
+
+pos_spec
+    : POSITION? '(' (pos_start | '*' ('+' | '-') pos_increment) ((':' | '-') (pos_end | pos_length))? ')'
+    ;
+
+pos_start
+    : UNSIGNED_INTEGER
+    ;
+
+pos_increment
+    : UNSIGNED_INTEGER
+    ;
+
+pos_end
+    : UNSIGNED_INTEGER
+    ;
+
+pos_length
+    : UNSIGNED_INTEGER
+    ;
+    
+datatype_spec
+    : UNSIGNED? INTEGER EXTERNAL? ('(' UNSIGNED_INTEGER ')')? delim_spec?
+    | (DECIMAL | ZONED) (
+                            EXTERNAL ('(' UNSIGNED_INTEGER ')')? delim_spec?
+                            | precision_part
+                        )?
+    | ORACLE_DATE
+    | ORACLE_NUMBER COUNTED?
+    | FLOAT EXTERNAL? ('(' UNSIGNED_INTEGER ')')? delim_spec?
+    | DOUBLE
+    | BINARY_FLOAT EXTERNAL? ('(' UNSIGNED_INTEGER ')')? delim_spec?
+    | BINARY_DOUBLE
+    | RAW ('(' UNSIGNED_INTEGER ')')?
+    | CHAR ('(' UNSIGNED_INTEGER ')')? delim_spec? trim_spec? field_date_format?
+    | (
+        VARCHAR
+        | VARRAW
+        | VARCHARC
+        | VARRAWC
+      ) '(' (numeric ',')? numeric ')'
+    ;
+    
+init_spec
+    : (DEFAULTIF | NULLIF) condition
+    ;
+    
+lls_clause
+    : LLS (directory_spec COLON)? file_spec?
+    ;
+    
+delim_spec
+    : ENCLOSED BY CHAR_STRING (AND CHAR_STRING)?
+    | TERMINATED BY (CHAR_STRING | WHITESPACE) (OPTIONALLY? ENCLOSED BY CHAR_STRING (AND CHAR_STRING)? )?
+    ;
+    
+trim_spec
+    : LRTRIM
+    | NOTRIM
+    | LTRIM
+    | RTRIM
+    | LDRTRIM
+    ;
+
+field_date_format
+    : DATE_FORMAT (DATE | TIMESTAMP)? MASK datetime_expr
+    ;
+    
+column_transforms
+    : COLUMN TRANSFORMS '(' transform (',' transform)* ')'
+    ;
+    
+transform
+    : column_name FROM  (
+                            NULL_
+                            | CONSTANT CHAR_STRING
+                            | CONCAT '(' concat_item (',' concat_item)* ')'
+                            | LOBFILE '(' lobfile_item (',' lobfile_item)* ')' lobfile_attr_list?
+                            | STARTOF source_field '(' UNSIGNED_INTEGER ')'
+                        )
+    ;
+    
+source_field
+    : column_name
+    ;
+    
+lobfile_item
+    : column_name
+    | CONSTANT CHAR_STRING COLON
+    ;
+    
+lobfile_attr_list
+    : FROM '(' (directory_spec COLON)? file_spec? (',' (directory_spec COLON)? file_spec?)* ')'
+    | CLOB
+    | BLOB
+    | CHARACTERSET '=' char_set_name
+    ;
+    
+concat_item
+    : column_name
+    | CONSTANT CHAR_STRING
     ;
 
 row_movement_clause
@@ -7571,6 +7761,70 @@ non_reserved_keywords_in_12c
     | XS
     | YEARS
     | ZONEMAP
+    | DEFAULTIF            
+    | LLS
+    | ENCLOSED
+    | TERMINATED
+    | OPTIONALLY
+    | LRTRIM
+    | NOTRIM                      
+    | LDRTRIM                     
+    | DATE_FORMAT        
+    | MASK                        
+    | TRANSFORMS                  
+    | LOBFILE                     
+    | STARTOF                     
+    | CHARACTERSET                
+    | RECORDS                     
+    | FIXED                       
+    | DELIMITED                   
+    | XMLTAG                      
+    | PREPROCESSOR                
+    | TERRITORY                   
+    | LITTLE                      
+    | BIG                         
+    | ENDIAN                      
+    | BYTEORDERMARK               
+    | NOCHECK                     
+    | SIZES                       
+    | ARE                         
+    | BYTES                       
+    | CHARACTERS                  
+    | READSIZE                    
+    | DISABLE_DIRECTORY_LINK_CHECK
+    | DATE_CACHE                  
+    | FIELD_NAMES                 
+    | FILES                       
+    | IO_OPTIONS                  
+    | DIRECTIO                    
+    | NODIRECTIO                  
+    | DNFS_ENABLE                 
+    | DNFS_DISABLE                
+    | DNFS_READBUFFERS            
+    | NOBADFILE                   
+    | BADFILE                     
+    | NODISCARDFILE               
+    | DISCARDFILE                 
+    | NOLOGFILE                   
+    | FIELDS                      
+    | IGNORE_CHARS_AFTER_EOR      
+    | CSV                         
+    | EMBEDDED                    
+    | OVERRIDE                    
+    | THESE                       
+    | FIELD                       
+    | NONULLIF                    
+    | POSITION                    
+    | NEWLINE_
+    | DETECTED
+    | UNSIGNED
+    | ZONED
+    | ORACLE_DATE
+    | ORACLE_NUMBER
+    | COUNTED
+    | VARRAW
+    | VARCHARC
+    | VARRAWC
     ;
 
 non_reserved_keywords_pre12c

@@ -2455,6 +2455,126 @@ func (v *BasePlSqlParserVisitor) VisitOpaque_format_spec(ctx *Opaque_format_spec
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitRecord_format_info(ctx *Record_format_infoContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitEt_record_spec_options(ctx *Et_record_spec_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitEt_record_spec_option(ctx *Et_record_spec_optionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitEt_output_files(ctx *Et_output_filesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitEt_output_file(ctx *Et_output_fileContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitDirectory_spec(ctx *Directory_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitFile_spec(ctx *File_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_definitions(ctx *Field_definitionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_options(ctx *Field_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_option(ctx *Field_optionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_list(ctx *Field_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_item(ctx *Field_itemContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_name(ctx *Field_nameContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPos_spec(ctx *Pos_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPos_start(ctx *Pos_startContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPos_increment(ctx *Pos_incrementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPos_end(ctx *Pos_endContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitPos_length(ctx *Pos_lengthContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitDatatype_spec(ctx *Datatype_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitInit_spec(ctx *Init_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitLls_clause(ctx *Lls_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitDelim_spec(ctx *Delim_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitTrim_spec(ctx *Trim_specContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitField_date_format(ctx *Field_date_formatContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitColumn_transforms(ctx *Column_transformsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitTransform(ctx *TransformContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitSource_field(ctx *Source_fieldContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitLobfile_item(ctx *Lobfile_itemContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitLobfile_attr_list(ctx *Lobfile_attr_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitConcat_item(ctx *Concat_itemContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitRow_movement_clause(ctx *Row_movement_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
