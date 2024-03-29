@@ -3912,6 +3912,186 @@ func (s *BasePlSqlParserListener) EnterOpaque_format_spec(ctx *Opaque_format_spe
 // ExitOpaque_format_spec is called when production opaque_format_spec is exited.
 func (s *BasePlSqlParserListener) ExitOpaque_format_spec(ctx *Opaque_format_specContext) {}
 
+// EnterRecord_format_info is called when production record_format_info is entered.
+func (s *BasePlSqlParserListener) EnterRecord_format_info(ctx *Record_format_infoContext) {}
+
+// ExitRecord_format_info is called when production record_format_info is exited.
+func (s *BasePlSqlParserListener) ExitRecord_format_info(ctx *Record_format_infoContext) {}
+
+// EnterEt_record_spec_options is called when production et_record_spec_options is entered.
+func (s *BasePlSqlParserListener) EnterEt_record_spec_options(ctx *Et_record_spec_optionsContext) {}
+
+// ExitEt_record_spec_options is called when production et_record_spec_options is exited.
+func (s *BasePlSqlParserListener) ExitEt_record_spec_options(ctx *Et_record_spec_optionsContext) {}
+
+// EnterEt_record_spec_option is called when production et_record_spec_option is entered.
+func (s *BasePlSqlParserListener) EnterEt_record_spec_option(ctx *Et_record_spec_optionContext) {}
+
+// ExitEt_record_spec_option is called when production et_record_spec_option is exited.
+func (s *BasePlSqlParserListener) ExitEt_record_spec_option(ctx *Et_record_spec_optionContext) {}
+
+// EnterEt_output_files is called when production et_output_files is entered.
+func (s *BasePlSqlParserListener) EnterEt_output_files(ctx *Et_output_filesContext) {}
+
+// ExitEt_output_files is called when production et_output_files is exited.
+func (s *BasePlSqlParserListener) ExitEt_output_files(ctx *Et_output_filesContext) {}
+
+// EnterEt_output_file is called when production et_output_file is entered.
+func (s *BasePlSqlParserListener) EnterEt_output_file(ctx *Et_output_fileContext) {}
+
+// ExitEt_output_file is called when production et_output_file is exited.
+func (s *BasePlSqlParserListener) ExitEt_output_file(ctx *Et_output_fileContext) {}
+
+// EnterDirectory_spec is called when production directory_spec is entered.
+func (s *BasePlSqlParserListener) EnterDirectory_spec(ctx *Directory_specContext) {}
+
+// ExitDirectory_spec is called when production directory_spec is exited.
+func (s *BasePlSqlParserListener) ExitDirectory_spec(ctx *Directory_specContext) {}
+
+// EnterFile_spec is called when production file_spec is entered.
+func (s *BasePlSqlParserListener) EnterFile_spec(ctx *File_specContext) {}
+
+// ExitFile_spec is called when production file_spec is exited.
+func (s *BasePlSqlParserListener) ExitFile_spec(ctx *File_specContext) {}
+
+// EnterField_definitions is called when production field_definitions is entered.
+func (s *BasePlSqlParserListener) EnterField_definitions(ctx *Field_definitionsContext) {}
+
+// ExitField_definitions is called when production field_definitions is exited.
+func (s *BasePlSqlParserListener) ExitField_definitions(ctx *Field_definitionsContext) {}
+
+// EnterField_options is called when production field_options is entered.
+func (s *BasePlSqlParserListener) EnterField_options(ctx *Field_optionsContext) {}
+
+// ExitField_options is called when production field_options is exited.
+func (s *BasePlSqlParserListener) ExitField_options(ctx *Field_optionsContext) {}
+
+// EnterField_option is called when production field_option is entered.
+func (s *BasePlSqlParserListener) EnterField_option(ctx *Field_optionContext) {}
+
+// ExitField_option is called when production field_option is exited.
+func (s *BasePlSqlParserListener) ExitField_option(ctx *Field_optionContext) {}
+
+// EnterField_list is called when production field_list is entered.
+func (s *BasePlSqlParserListener) EnterField_list(ctx *Field_listContext) {}
+
+// ExitField_list is called when production field_list is exited.
+func (s *BasePlSqlParserListener) ExitField_list(ctx *Field_listContext) {}
+
+// EnterField_item is called when production field_item is entered.
+func (s *BasePlSqlParserListener) EnterField_item(ctx *Field_itemContext) {}
+
+// ExitField_item is called when production field_item is exited.
+func (s *BasePlSqlParserListener) ExitField_item(ctx *Field_itemContext) {}
+
+// EnterField_name is called when production field_name is entered.
+func (s *BasePlSqlParserListener) EnterField_name(ctx *Field_nameContext) {}
+
+// ExitField_name is called when production field_name is exited.
+func (s *BasePlSqlParserListener) ExitField_name(ctx *Field_nameContext) {}
+
+// EnterPos_spec is called when production pos_spec is entered.
+func (s *BasePlSqlParserListener) EnterPos_spec(ctx *Pos_specContext) {}
+
+// ExitPos_spec is called when production pos_spec is exited.
+func (s *BasePlSqlParserListener) ExitPos_spec(ctx *Pos_specContext) {}
+
+// EnterPos_start is called when production pos_start is entered.
+func (s *BasePlSqlParserListener) EnterPos_start(ctx *Pos_startContext) {}
+
+// ExitPos_start is called when production pos_start is exited.
+func (s *BasePlSqlParserListener) ExitPos_start(ctx *Pos_startContext) {}
+
+// EnterPos_increment is called when production pos_increment is entered.
+func (s *BasePlSqlParserListener) EnterPos_increment(ctx *Pos_incrementContext) {}
+
+// ExitPos_increment is called when production pos_increment is exited.
+func (s *BasePlSqlParserListener) ExitPos_increment(ctx *Pos_incrementContext) {}
+
+// EnterPos_end is called when production pos_end is entered.
+func (s *BasePlSqlParserListener) EnterPos_end(ctx *Pos_endContext) {}
+
+// ExitPos_end is called when production pos_end is exited.
+func (s *BasePlSqlParserListener) ExitPos_end(ctx *Pos_endContext) {}
+
+// EnterPos_length is called when production pos_length is entered.
+func (s *BasePlSqlParserListener) EnterPos_length(ctx *Pos_lengthContext) {}
+
+// ExitPos_length is called when production pos_length is exited.
+func (s *BasePlSqlParserListener) ExitPos_length(ctx *Pos_lengthContext) {}
+
+// EnterDatatype_spec is called when production datatype_spec is entered.
+func (s *BasePlSqlParserListener) EnterDatatype_spec(ctx *Datatype_specContext) {}
+
+// ExitDatatype_spec is called when production datatype_spec is exited.
+func (s *BasePlSqlParserListener) ExitDatatype_spec(ctx *Datatype_specContext) {}
+
+// EnterInit_spec is called when production init_spec is entered.
+func (s *BasePlSqlParserListener) EnterInit_spec(ctx *Init_specContext) {}
+
+// ExitInit_spec is called when production init_spec is exited.
+func (s *BasePlSqlParserListener) ExitInit_spec(ctx *Init_specContext) {}
+
+// EnterLls_clause is called when production lls_clause is entered.
+func (s *BasePlSqlParserListener) EnterLls_clause(ctx *Lls_clauseContext) {}
+
+// ExitLls_clause is called when production lls_clause is exited.
+func (s *BasePlSqlParserListener) ExitLls_clause(ctx *Lls_clauseContext) {}
+
+// EnterDelim_spec is called when production delim_spec is entered.
+func (s *BasePlSqlParserListener) EnterDelim_spec(ctx *Delim_specContext) {}
+
+// ExitDelim_spec is called when production delim_spec is exited.
+func (s *BasePlSqlParserListener) ExitDelim_spec(ctx *Delim_specContext) {}
+
+// EnterTrim_spec is called when production trim_spec is entered.
+func (s *BasePlSqlParserListener) EnterTrim_spec(ctx *Trim_specContext) {}
+
+// ExitTrim_spec is called when production trim_spec is exited.
+func (s *BasePlSqlParserListener) ExitTrim_spec(ctx *Trim_specContext) {}
+
+// EnterField_date_format is called when production field_date_format is entered.
+func (s *BasePlSqlParserListener) EnterField_date_format(ctx *Field_date_formatContext) {}
+
+// ExitField_date_format is called when production field_date_format is exited.
+func (s *BasePlSqlParserListener) ExitField_date_format(ctx *Field_date_formatContext) {}
+
+// EnterColumn_transforms is called when production column_transforms is entered.
+func (s *BasePlSqlParserListener) EnterColumn_transforms(ctx *Column_transformsContext) {}
+
+// ExitColumn_transforms is called when production column_transforms is exited.
+func (s *BasePlSqlParserListener) ExitColumn_transforms(ctx *Column_transformsContext) {}
+
+// EnterTransform is called when production transform is entered.
+func (s *BasePlSqlParserListener) EnterTransform(ctx *TransformContext) {}
+
+// ExitTransform is called when production transform is exited.
+func (s *BasePlSqlParserListener) ExitTransform(ctx *TransformContext) {}
+
+// EnterSource_field is called when production source_field is entered.
+func (s *BasePlSqlParserListener) EnterSource_field(ctx *Source_fieldContext) {}
+
+// ExitSource_field is called when production source_field is exited.
+func (s *BasePlSqlParserListener) ExitSource_field(ctx *Source_fieldContext) {}
+
+// EnterLobfile_item is called when production lobfile_item is entered.
+func (s *BasePlSqlParserListener) EnterLobfile_item(ctx *Lobfile_itemContext) {}
+
+// ExitLobfile_item is called when production lobfile_item is exited.
+func (s *BasePlSqlParserListener) ExitLobfile_item(ctx *Lobfile_itemContext) {}
+
+// EnterLobfile_attr_list is called when production lobfile_attr_list is entered.
+func (s *BasePlSqlParserListener) EnterLobfile_attr_list(ctx *Lobfile_attr_listContext) {}
+
+// ExitLobfile_attr_list is called when production lobfile_attr_list is exited.
+func (s *BasePlSqlParserListener) ExitLobfile_attr_list(ctx *Lobfile_attr_listContext) {}
+
+// EnterConcat_item is called when production concat_item is entered.
+func (s *BasePlSqlParserListener) EnterConcat_item(ctx *Concat_itemContext) {}
+
+// ExitConcat_item is called when production concat_item is exited.
+func (s *BasePlSqlParserListener) ExitConcat_item(ctx *Concat_itemContext) {}
+
 // EnterRow_movement_clause is called when production row_movement_clause is entered.
 func (s *BasePlSqlParserListener) EnterRow_movement_clause(ctx *Row_movement_clauseContext) {}
 

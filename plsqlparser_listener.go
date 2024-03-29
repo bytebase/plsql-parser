@@ -1843,6 +1843,96 @@ type PlSqlParserListener interface {
 	// EnterOpaque_format_spec is called when entering the opaque_format_spec production.
 	EnterOpaque_format_spec(c *Opaque_format_specContext)
 
+	// EnterRecord_format_info is called when entering the record_format_info production.
+	EnterRecord_format_info(c *Record_format_infoContext)
+
+	// EnterEt_record_spec_options is called when entering the et_record_spec_options production.
+	EnterEt_record_spec_options(c *Et_record_spec_optionsContext)
+
+	// EnterEt_record_spec_option is called when entering the et_record_spec_option production.
+	EnterEt_record_spec_option(c *Et_record_spec_optionContext)
+
+	// EnterEt_output_files is called when entering the et_output_files production.
+	EnterEt_output_files(c *Et_output_filesContext)
+
+	// EnterEt_output_file is called when entering the et_output_file production.
+	EnterEt_output_file(c *Et_output_fileContext)
+
+	// EnterDirectory_spec is called when entering the directory_spec production.
+	EnterDirectory_spec(c *Directory_specContext)
+
+	// EnterFile_spec is called when entering the file_spec production.
+	EnterFile_spec(c *File_specContext)
+
+	// EnterField_definitions is called when entering the field_definitions production.
+	EnterField_definitions(c *Field_definitionsContext)
+
+	// EnterField_options is called when entering the field_options production.
+	EnterField_options(c *Field_optionsContext)
+
+	// EnterField_option is called when entering the field_option production.
+	EnterField_option(c *Field_optionContext)
+
+	// EnterField_list is called when entering the field_list production.
+	EnterField_list(c *Field_listContext)
+
+	// EnterField_item is called when entering the field_item production.
+	EnterField_item(c *Field_itemContext)
+
+	// EnterField_name is called when entering the field_name production.
+	EnterField_name(c *Field_nameContext)
+
+	// EnterPos_spec is called when entering the pos_spec production.
+	EnterPos_spec(c *Pos_specContext)
+
+	// EnterPos_start is called when entering the pos_start production.
+	EnterPos_start(c *Pos_startContext)
+
+	// EnterPos_increment is called when entering the pos_increment production.
+	EnterPos_increment(c *Pos_incrementContext)
+
+	// EnterPos_end is called when entering the pos_end production.
+	EnterPos_end(c *Pos_endContext)
+
+	// EnterPos_length is called when entering the pos_length production.
+	EnterPos_length(c *Pos_lengthContext)
+
+	// EnterDatatype_spec is called when entering the datatype_spec production.
+	EnterDatatype_spec(c *Datatype_specContext)
+
+	// EnterInit_spec is called when entering the init_spec production.
+	EnterInit_spec(c *Init_specContext)
+
+	// EnterLls_clause is called when entering the lls_clause production.
+	EnterLls_clause(c *Lls_clauseContext)
+
+	// EnterDelim_spec is called when entering the delim_spec production.
+	EnterDelim_spec(c *Delim_specContext)
+
+	// EnterTrim_spec is called when entering the trim_spec production.
+	EnterTrim_spec(c *Trim_specContext)
+
+	// EnterField_date_format is called when entering the field_date_format production.
+	EnterField_date_format(c *Field_date_formatContext)
+
+	// EnterColumn_transforms is called when entering the column_transforms production.
+	EnterColumn_transforms(c *Column_transformsContext)
+
+	// EnterTransform is called when entering the transform production.
+	EnterTransform(c *TransformContext)
+
+	// EnterSource_field is called when entering the source_field production.
+	EnterSource_field(c *Source_fieldContext)
+
+	// EnterLobfile_item is called when entering the lobfile_item production.
+	EnterLobfile_item(c *Lobfile_itemContext)
+
+	// EnterLobfile_attr_list is called when entering the lobfile_attr_list production.
+	EnterLobfile_attr_list(c *Lobfile_attr_listContext)
+
+	// EnterConcat_item is called when entering the concat_item production.
+	EnterConcat_item(c *Concat_itemContext)
+
 	// EnterRow_movement_clause is called when entering the row_movement_clause production.
 	EnterRow_movement_clause(c *Row_movement_clauseContext)
 
@@ -5331,6 +5421,96 @@ type PlSqlParserListener interface {
 
 	// ExitOpaque_format_spec is called when exiting the opaque_format_spec production.
 	ExitOpaque_format_spec(c *Opaque_format_specContext)
+
+	// ExitRecord_format_info is called when exiting the record_format_info production.
+	ExitRecord_format_info(c *Record_format_infoContext)
+
+	// ExitEt_record_spec_options is called when exiting the et_record_spec_options production.
+	ExitEt_record_spec_options(c *Et_record_spec_optionsContext)
+
+	// ExitEt_record_spec_option is called when exiting the et_record_spec_option production.
+	ExitEt_record_spec_option(c *Et_record_spec_optionContext)
+
+	// ExitEt_output_files is called when exiting the et_output_files production.
+	ExitEt_output_files(c *Et_output_filesContext)
+
+	// ExitEt_output_file is called when exiting the et_output_file production.
+	ExitEt_output_file(c *Et_output_fileContext)
+
+	// ExitDirectory_spec is called when exiting the directory_spec production.
+	ExitDirectory_spec(c *Directory_specContext)
+
+	// ExitFile_spec is called when exiting the file_spec production.
+	ExitFile_spec(c *File_specContext)
+
+	// ExitField_definitions is called when exiting the field_definitions production.
+	ExitField_definitions(c *Field_definitionsContext)
+
+	// ExitField_options is called when exiting the field_options production.
+	ExitField_options(c *Field_optionsContext)
+
+	// ExitField_option is called when exiting the field_option production.
+	ExitField_option(c *Field_optionContext)
+
+	// ExitField_list is called when exiting the field_list production.
+	ExitField_list(c *Field_listContext)
+
+	// ExitField_item is called when exiting the field_item production.
+	ExitField_item(c *Field_itemContext)
+
+	// ExitField_name is called when exiting the field_name production.
+	ExitField_name(c *Field_nameContext)
+
+	// ExitPos_spec is called when exiting the pos_spec production.
+	ExitPos_spec(c *Pos_specContext)
+
+	// ExitPos_start is called when exiting the pos_start production.
+	ExitPos_start(c *Pos_startContext)
+
+	// ExitPos_increment is called when exiting the pos_increment production.
+	ExitPos_increment(c *Pos_incrementContext)
+
+	// ExitPos_end is called when exiting the pos_end production.
+	ExitPos_end(c *Pos_endContext)
+
+	// ExitPos_length is called when exiting the pos_length production.
+	ExitPos_length(c *Pos_lengthContext)
+
+	// ExitDatatype_spec is called when exiting the datatype_spec production.
+	ExitDatatype_spec(c *Datatype_specContext)
+
+	// ExitInit_spec is called when exiting the init_spec production.
+	ExitInit_spec(c *Init_specContext)
+
+	// ExitLls_clause is called when exiting the lls_clause production.
+	ExitLls_clause(c *Lls_clauseContext)
+
+	// ExitDelim_spec is called when exiting the delim_spec production.
+	ExitDelim_spec(c *Delim_specContext)
+
+	// ExitTrim_spec is called when exiting the trim_spec production.
+	ExitTrim_spec(c *Trim_specContext)
+
+	// ExitField_date_format is called when exiting the field_date_format production.
+	ExitField_date_format(c *Field_date_formatContext)
+
+	// ExitColumn_transforms is called when exiting the column_transforms production.
+	ExitColumn_transforms(c *Column_transformsContext)
+
+	// ExitTransform is called when exiting the transform production.
+	ExitTransform(c *TransformContext)
+
+	// ExitSource_field is called when exiting the source_field production.
+	ExitSource_field(c *Source_fieldContext)
+
+	// ExitLobfile_item is called when exiting the lobfile_item production.
+	ExitLobfile_item(c *Lobfile_itemContext)
+
+	// ExitLobfile_attr_list is called when exiting the lobfile_attr_list production.
+	ExitLobfile_attr_list(c *Lobfile_attr_listContext)
+
+	// ExitConcat_item is called when exiting the concat_item production.
+	ExitConcat_item(c *Concat_itemContext)
 
 	// ExitRow_movement_clause is called when exiting the row_movement_clause production.
 	ExitRow_movement_clause(c *Row_movement_clauseContext)
