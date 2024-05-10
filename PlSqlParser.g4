@@ -6872,6 +6872,7 @@ grantee_name
 role_name
     : id_expression
     | CONNECT
+    | RESOURCE
     ;
 
 constraint_name
