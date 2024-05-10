@@ -8931,6 +8931,7 @@ non_reserved_keywords_pre12c
     | RESIZE
     | RESOLVE
     | RESOLVER
+    | RESOURCE
     | RESPECT
     | RESTORE_AS_INTERVALS
     | RESTORE
