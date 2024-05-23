@@ -7490,12 +7490,6 @@ func (s *BasePlSqlParserListener) EnterBind_variable(ctx *Bind_variableContext) 
 // ExitBind_variable is called when production bind_variable is exited.
 func (s *BasePlSqlParserListener) ExitBind_variable(ctx *Bind_variableContext) {}
 
-// EnterGeneral_element is called when production general_element is entered.
-func (s *BasePlSqlParserListener) EnterGeneral_element(ctx *General_elementContext) {}
-
-// ExitGeneral_element is called when production general_element is exited.
-func (s *BasePlSqlParserListener) ExitGeneral_element(ctx *General_elementContext) {}
-
 // EnterGeneral_element_part is called when production general_element_part is entered.
 func (s *BasePlSqlParserListener) EnterGeneral_element_part(ctx *General_element_partContext) {}
 
@@ -7526,6 +7520,14 @@ func (s *BasePlSqlParserListener) EnterConstant(ctx *ConstantContext) {}
 // ExitConstant is called when production constant is exited.
 func (s *BasePlSqlParserListener) ExitConstant(ctx *ConstantContext) {}
 
+// EnterConstant_without_variable is called when production constant_without_variable is entered.
+func (s *BasePlSqlParserListener) EnterConstant_without_variable(ctx *Constant_without_variableContext) {
+}
+
+// ExitConstant_without_variable is called when production constant_without_variable is exited.
+func (s *BasePlSqlParserListener) ExitConstant_without_variable(ctx *Constant_without_variableContext) {
+}
+
 // EnterNumeric is called when production numeric is entered.
 func (s *BasePlSqlParserListener) EnterNumeric(ctx *NumericContext) {}
 
@@ -7543,6 +7545,12 @@ func (s *BasePlSqlParserListener) EnterQuoted_string(ctx *Quoted_stringContext) 
 
 // ExitQuoted_string is called when production quoted_string is exited.
 func (s *BasePlSqlParserListener) ExitQuoted_string(ctx *Quoted_stringContext) {}
+
+// EnterChar_str is called when production char_str is entered.
+func (s *BasePlSqlParserListener) EnterChar_str(ctx *Char_strContext) {}
+
+// ExitChar_str is called when production char_str is exited.
+func (s *BasePlSqlParserListener) ExitChar_str(ctx *Char_strContext) {}
 
 // EnterIdentifier is called when production identifier is entered.
 func (s *BasePlSqlParserListener) EnterIdentifier(ctx *IdentifierContext) {}

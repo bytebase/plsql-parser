@@ -3535,9 +3535,6 @@ type PlSqlParserListener interface {
 	// EnterBind_variable is called when entering the bind_variable production.
 	EnterBind_variable(c *Bind_variableContext)
 
-	// EnterGeneral_element is called when entering the general_element production.
-	EnterGeneral_element(c *General_elementContext)
-
 	// EnterGeneral_element_part is called when entering the general_element_part production.
 	EnterGeneral_element_part(c *General_element_partContext)
 
@@ -3553,6 +3550,9 @@ type PlSqlParserListener interface {
 	// EnterConstant is called when entering the constant production.
 	EnterConstant(c *ConstantContext)
 
+	// EnterConstant_without_variable is called when entering the constant_without_variable production.
+	EnterConstant_without_variable(c *Constant_without_variableContext)
+
 	// EnterNumeric is called when entering the numeric production.
 	EnterNumeric(c *NumericContext)
 
@@ -3561,6 +3561,9 @@ type PlSqlParserListener interface {
 
 	// EnterQuoted_string is called when entering the quoted_string production.
 	EnterQuoted_string(c *Quoted_stringContext)
+
+	// EnterChar_str is called when entering the char_str production.
+	EnterChar_str(c *Char_strContext)
 
 	// EnterIdentifier is called when entering the identifier production.
 	EnterIdentifier(c *IdentifierContext)
@@ -7114,9 +7117,6 @@ type PlSqlParserListener interface {
 	// ExitBind_variable is called when exiting the bind_variable production.
 	ExitBind_variable(c *Bind_variableContext)
 
-	// ExitGeneral_element is called when exiting the general_element production.
-	ExitGeneral_element(c *General_elementContext)
-
 	// ExitGeneral_element_part is called when exiting the general_element_part production.
 	ExitGeneral_element_part(c *General_element_partContext)
 
@@ -7132,6 +7132,9 @@ type PlSqlParserListener interface {
 	// ExitConstant is called when exiting the constant production.
 	ExitConstant(c *ConstantContext)
 
+	// ExitConstant_without_variable is called when exiting the constant_without_variable production.
+	ExitConstant_without_variable(c *Constant_without_variableContext)
+
 	// ExitNumeric is called when exiting the numeric production.
 	ExitNumeric(c *NumericContext)
 
@@ -7140,6 +7143,9 @@ type PlSqlParserListener interface {
 
 	// ExitQuoted_string is called when exiting the quoted_string production.
 	ExitQuoted_string(c *Quoted_stringContext)
+
+	// ExitChar_str is called when exiting the char_str production.
+	ExitChar_str(c *Char_strContext)
 
 	// ExitIdentifier is called when exiting the identifier production.
 	ExitIdentifier(c *IdentifierContext)
