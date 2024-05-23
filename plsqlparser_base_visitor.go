@@ -4711,10 +4711,6 @@ func (v *BasePlSqlParserVisitor) VisitBind_variable(ctx *Bind_variableContext) i
 	return v.VisitChildren(ctx)
 }
 
-func (v *BasePlSqlParserVisitor) VisitGeneral_element(ctx *General_elementContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BasePlSqlParserVisitor) VisitGeneral_element_part(ctx *General_element_partContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -4735,6 +4731,10 @@ func (v *BasePlSqlParserVisitor) VisitConstant(ctx *ConstantContext) interface{}
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitConstant_without_variable(ctx *Constant_without_variableContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitNumeric(ctx *NumericContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -4744,6 +4744,10 @@ func (v *BasePlSqlParserVisitor) VisitNumeric_negative(ctx *Numeric_negativeCont
 }
 
 func (v *BasePlSqlParserVisitor) VisitQuoted_string(ctx *Quoted_stringContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BasePlSqlParserVisitor) VisitChar_str(ctx *Char_strContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

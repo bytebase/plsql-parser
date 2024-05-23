@@ -3535,9 +3535,6 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#bind_variable.
 	VisitBind_variable(ctx *Bind_variableContext) interface{}
 
-	// Visit a parse tree produced by PlSqlParser#general_element.
-	VisitGeneral_element(ctx *General_elementContext) interface{}
-
 	// Visit a parse tree produced by PlSqlParser#general_element_part.
 	VisitGeneral_element_part(ctx *General_element_partContext) interface{}
 
@@ -3553,6 +3550,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#constant.
 	VisitConstant(ctx *ConstantContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#constant_without_variable.
+	VisitConstant_without_variable(ctx *Constant_without_variableContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#numeric.
 	VisitNumeric(ctx *NumericContext) interface{}
 
@@ -3561,6 +3561,9 @@ type PlSqlParserVisitor interface {
 
 	// Visit a parse tree produced by PlSqlParser#quoted_string.
 	VisitQuoted_string(ctx *Quoted_stringContext) interface{}
+
+	// Visit a parse tree produced by PlSqlParser#char_str.
+	VisitChar_str(ctx *Char_strContext) interface{}
 
 	// Visit a parse tree produced by PlSqlParser#identifier.
 	VisitIdentifier(ctx *IdentifierContext) interface{}

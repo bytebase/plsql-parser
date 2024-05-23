@@ -5597,7 +5597,7 @@ swallow_to_semi
     ;
 
 assignment_statement
-    : (general_element | bind_variable) ASSIGN_OP expression
+    : (general_element_part | bind_variable) ASSIGN_OP expression
     ;
 
 continue_statement
@@ -6322,7 +6322,7 @@ in_elements
     | '(' concatenation (',' concatenation)* ')'
     | constant
     | bind_variable
-    | general_element
+    | general_element_part
     ;
 
 between_elements
@@ -6413,11 +6413,10 @@ case_else_part
 atom
     : table_element outer_join_sign
     | bind_variable
-    | constant
-    | general_element
+    | constant_without_variable
+    | general_element_part
     | '(' subquery ')' subquery_operation_part*
     | '(' expressions ')'
-    | quoted_string
     ;
 
 quantified_expression
@@ -6588,21 +6587,21 @@ other_function
     | TREAT '(' expression AS REF? type_spec ')'
     | TRIM '(' ((LEADING | TRAILING | BOTH)? quoted_string? FROM)? concatenation ')'
     | VALIDATE_CONVERSION '(' concatenation AS type_spec (',' quoted_string (',' quoted_string)? )? ')'
-    | XMLAGG '(' expression order_by_clause? ')' ('.' general_element_part)*
+    | XMLAGG '(' expression order_by_clause? ')' ('.' general_element_part)?
     | (XMLCOLATTVAL | XMLFOREST)
-      '(' xml_multiuse_expression_element (',' xml_multiuse_expression_element)* ')' ('.' general_element_part)*
+      '(' xml_multiuse_expression_element (',' xml_multiuse_expression_element)* ')' ('.' general_element_part)?
     | XMLELEMENT
       '(' (ENTITYESCAPING | NOENTITYESCAPING)? (NAME | EVALNAME)? expression
        (/*TODO{input.LT(2).getText().equalsIgnoreCase("xmlattributes")}?*/ ',' xml_attributes_clause)?
-       (',' expression column_alias?)* ')' ('.' general_element_part)*
+       (',' expression column_alias?)* ')' ('.' general_element_part)?
     | XMLEXISTS '(' expression xml_passing_clause? ')'
-    | XMLPARSE '(' (DOCUMENT | CONTENT) concatenation WELLFORMED? ')' ('.' general_element_part)*
+    | XMLPARSE '(' (DOCUMENT | CONTENT) concatenation WELLFORMED? ')' ('.' general_element_part)?
     | XMLPI
-      '(' (NAME identifier | EVALNAME concatenation) (',' concatenation)? ')' ('.' general_element_part)*
+      '(' (NAME identifier | EVALNAME concatenation) (',' concatenation)? ')' ('.' general_element_part)?
     | XMLQUERY
-      '(' concatenation xml_passing_clause? RETURNING CONTENT (NULL_ ON EMPTY)? ')' ('.' general_element_part)*
+      '(' concatenation xml_passing_clause? RETURNING CONTENT (NULL_ ON EMPTY)? ')' ('.' general_element_part)?
     | XMLROOT
-      '(' concatenation (',' xmlroot_param_version_part)? (',' xmlroot_param_standalone_part)? ')' ('.' general_element_part)*
+      '(' concatenation (',' xmlroot_param_version_part)? (',' xmlroot_param_standalone_part)? ')' ('.' general_element_part)?
     | XMLSERIALIZE
       '(' (DOCUMENT | CONTENT) concatenation (AS type_spec)?
       xmlserialize_param_enconding_part? xmlserialize_param_version_part? xmlserialize_param_ident_part? ((HIDE | SHOW) DEFAULTS)? ')'
@@ -6795,7 +6794,7 @@ quantitative_where_stmt
     ;
 
 into_clause
-    : (BULK COLLECT)? INTO (general_element | bind_variable) (',' (general_element | bind_variable))*
+    : (BULK COLLECT)? INTO (general_element_part | bind_variable) (',' (general_element_part | bind_variable))*
     ;
 
 // Common Named Elements
@@ -6917,7 +6916,7 @@ index_name
     ;
 
 cursor_name
-    : general_element
+    : general_element_part
     | bind_variable
     ;
 
@@ -7093,13 +7092,14 @@ bind_variable
     : (BINDVAR | ':' UNSIGNED_INTEGER)
       // Pro*C/C++ indicator variables
       (INDICATOR? (BINDVAR | ':' UNSIGNED_INTEGER))?
-      ('.' general_element_part)*
+      ('.' general_element_part)?
     ;
 
-general_element
-    : general_element_part ('.' general_element_part)*
-    ;
+// general_element
+//     : general_element_part ('.' general_element_part)*
+//     ;
 
+// general_element_part contains the variable_name rule.
 general_element_part
     : (INTRODUCER char_set_name)? id_expression ('.' id_expression)* ('@' link_name)? function_argument?
     ;
@@ -7251,6 +7251,25 @@ constant
     | MAXVALUE
     | DEFAULT
     ;
+    
+constant_without_variable
+    : TIMESTAMP (quoted_string | bind_variable) (AT TIME ZONE quoted_string)?
+    | INTERVAL (quoted_string | bind_variable | general_element_part)
+      (YEAR | MONTH | DAY | HOUR | MINUTE | SECOND)
+      ('(' (UNSIGNED_INTEGER | bind_variable) (',' (UNSIGNED_INTEGER | bind_variable) )? ')')?
+      (TO ( DAY | HOUR | MINUTE | SECOND ('(' (UNSIGNED_INTEGER | bind_variable) ')')?))?
+    | numeric
+    | DATE quoted_string
+    | char_str
+    | NULL_
+    | TRUE
+    | FALSE
+    | DBTIMEZONE
+    | SESSIONTIMEZONE
+    | MINVALUE
+    | MAXVALUE
+    | DEFAULT
+    ;
 
 numeric
     : UNSIGNED_INTEGER
@@ -7265,6 +7284,11 @@ quoted_string
     : variable_name
     | CHAR_STRING
     //| CHAR_STRING_PERL
+    | NATIONAL_CHAR_STRING_LIT
+    ;
+    
+char_str
+    : CHAR_STRING
     | NATIONAL_CHAR_STRING_LIT
     ;
 
