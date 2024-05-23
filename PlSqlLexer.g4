@@ -2574,7 +2574,7 @@ START_CMD
     : '@' {p.IsNewlineAtPos(-2)}? '@'? ~('\r' | '\n')* NEWLINE_EOF
     ;
 
-REGULAR_ID: SIMPLE_LETTER (SIMPLE_LETTER | '$' | '_' | '#' | [0-9])*;
+REGULAR_ID: (SIMPLE_LETTER | FULL_WIDTH_LETTER) (SIMPLE_LETTER | FULL_WIDTH_LETTER | '$' | '_' | '#' | [0-9])*;
 
 SPACES: [ \t\r\n] -> channel(HIDDEN);
 
@@ -2586,3 +2586,20 @@ fragment SIMPLE_LETTER  : [A-Z];
 fragment FLOAT_FRAGMENT : UNSIGNED_INTEGER* '.'? UNSIGNED_INTEGER+;
 fragment NEWLINE        : '\r'? '\n';
 fragment SPACE          : [ \t];
+
+fragment FULL_WIDTH_LETTER options { caseInsensitive=false; }
+    : '\u00c0'..'\u00d6'
+    | '\u00d8'..'\u00f6'
+    | '\u00f8'..'\u00ff'
+    | '\u0100'..'\u1fff'
+    | '\u2c00'..'\u2fff'
+    | '\u3040'..'\u318f'
+    | '\u3300'..'\u337f'
+    | '\u3400'..'\u3fff'
+    | '\u4e00'..'\u9fff'
+    | '\ua000'..'\ud7ff'
+    | '\uf900'..'\ufaff'
+    | '\uff00'..'\ufff0'
+    // | '\u10000'..'\u1F9FF'  //not support four bytes chars
+    // | '\u20000'..'\u2FA1F'
+    ;

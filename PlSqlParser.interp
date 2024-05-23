@@ -6015,15 +6015,16 @@ datatype
 precision_part
 native_datatype_element
 bind_variable
-general_element
 general_element_part
 table_element
 object_privilege
 system_privilege
 constant
+constant_without_variable
 numeric
 numeric_negative
 quoted_string
+char_str
 identifier
 id_expression
 outer_join_sign
