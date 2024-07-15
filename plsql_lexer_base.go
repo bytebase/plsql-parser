@@ -1,12 +1,17 @@
 package parser
 
-import "github.com/antlr4-go/antlr/v4"
+import (
+	"strings"
+
+	"github.com/antlr4-go/antlr/v4"
+)
 
 // PlSqlLexerBase state
 type PlSqlLexerBase struct {
 	*antlr.BaseLexer
 
-	lastToken antlr.Token
+	lastToken   antlr.Token
+	reservedMap map[string]bool
 }
 
 // NextToken from the character stream.
@@ -2323,4 +2328,21 @@ func (l *PlSqlLexerBase) IsIdentifier(tokenType int) bool {
 		return true
 	}
 	return false
+}
+
+func (l *PlSqlLexerBase) IsReservedKeywords(s string) bool {
+	l.initReservedMap()
+
+	_, exists := l.reservedMap[strings.ToUpper(s)]
+	return exists
+}
+
+func (l *PlSqlLexerBase) initReservedMap() {
+	if l.reservedMap != nil {
+		return
+	}
+	l.reservedMap = make(map[string]bool)
+	for keyword := range ReservedWords {
+		l.reservedMap[keyword] = true
+	}
 }
