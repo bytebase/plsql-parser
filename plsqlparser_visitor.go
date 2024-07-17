@@ -2860,6 +2860,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#select_list_elements.
 	VisitSelect_list_elements(ctx *Select_list_elementsContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#table_wild.
+	VisitTable_wild(ctx *Table_wildContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#table_ref_list.
 	VisitTable_ref_list(ctx *Table_ref_listContext) interface{}
 

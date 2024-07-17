@@ -6064,6 +6064,12 @@ func (s *BasePlSqlParserListener) EnterSelect_list_elements(ctx *Select_list_ele
 // ExitSelect_list_elements is called when production select_list_elements is exited.
 func (s *BasePlSqlParserListener) ExitSelect_list_elements(ctx *Select_list_elementsContext) {}
 
+// EnterTable_wild is called when production table_wild is entered.
+func (s *BasePlSqlParserListener) EnterTable_wild(ctx *Table_wildContext) {}
+
+// ExitTable_wild is called when production table_wild is exited.
+func (s *BasePlSqlParserListener) ExitTable_wild(ctx *Table_wildContext) {}
+
 // EnterTable_ref_list is called when production table_ref_list is entered.
 func (s *BasePlSqlParserListener) EnterTable_ref_list(ctx *Table_ref_listContext) {}
 
