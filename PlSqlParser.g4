@@ -5876,8 +5876,12 @@ from_clause
     ;
 
 select_list_elements
-    : tableview_name '.' ASTERISK
+    : table_wild
     | expression column_alias?
+    ;
+    
+table_wild
+    : tableview_name '.' ASTERISK
     ;
 
 table_ref_list

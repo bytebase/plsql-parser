@@ -3811,6 +3811,10 @@ func (v *BasePlSqlParserVisitor) VisitSelect_list_elements(ctx *Select_list_elem
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitTable_wild(ctx *Table_wildContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitTable_ref_list(ctx *Table_ref_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }

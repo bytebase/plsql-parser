@@ -2860,6 +2860,9 @@ type PlSqlParserListener interface {
 	// EnterSelect_list_elements is called when entering the select_list_elements production.
 	EnterSelect_list_elements(c *Select_list_elementsContext)
 
+	// EnterTable_wild is called when entering the table_wild production.
+	EnterTable_wild(c *Table_wildContext)
+
 	// EnterTable_ref_list is called when entering the table_ref_list production.
 	EnterTable_ref_list(c *Table_ref_listContext)
 
@@ -6441,6 +6444,9 @@ type PlSqlParserListener interface {
 
 	// ExitSelect_list_elements is called when exiting the select_list_elements production.
 	ExitSelect_list_elements(c *Select_list_elementsContext)
+
+	// ExitTable_wild is called when exiting the table_wild production.
+	ExitTable_wild(c *Table_wildContext)
 
 	// ExitTable_ref_list is called when exiting the table_ref_list production.
 	ExitTable_ref_list(c *Table_ref_listContext)
