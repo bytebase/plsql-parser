@@ -11,6 +11,10 @@ type PlSqlParserBase struct {
 	_isVersion10 bool
 }
 
+func (p *PlSqlParserBase) IsTableAlias() bool {
+	return p.GetCurrentToken().GetTokenType() != PlSqlLexerJOIN
+}
+
 func (p *PlSqlParserBase) isVersion12() bool {
 	return p._isVersion12
 }
