@@ -5898,7 +5898,7 @@ table_ref
     ;
 
 table_ref_aux
-    : table_ref_aux_internal flashback_query_clause* (/*{isTableAlias()}?*/ table_alias)?
+    : table_ref_aux_internal flashback_query_clause* ({p.IsTableAlias()}? table_alias)?
     ;
 
 table_ref_aux_internal
