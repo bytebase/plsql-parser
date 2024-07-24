@@ -5117,13 +5117,19 @@ drop_column_clause
 
 modify_column_clauses
     : MODIFY ('(' modify_col_properties (',' modify_col_properties)* ')'
+             | '(' modify_col_visibility (',' modify_col_visibility) ')'
              | modify_col_properties
+             | modify_col_visibility
              | modify_col_substitutable
              )
     ;
+    
+modify_col_visibility
+    : column_name (VISIBLE | INVISIBLE)
+    ;
 
 modify_col_properties
-    : column_name datatype? (DEFAULT expression)? (ENCRYPT encryption_spec | DECRYPT)? inline_constraint* lob_storage_clause? //TODO alter_xmlschema_clause
+    : column_name datatype? (COLLATE column_collation_name)? (DEFAULT (ON NULL_)? expression)? (ENCRYPT encryption_spec | DECRYPT)? inline_constraint* lob_storage_clause? //TODO alter_xmlschema_clause
     ;
 
 modify_col_substitutable

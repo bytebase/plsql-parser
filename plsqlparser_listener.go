@@ -2449,6 +2449,9 @@ type PlSqlParserListener interface {
 	// EnterModify_column_clauses is called when entering the modify_column_clauses production.
 	EnterModify_column_clauses(c *Modify_column_clausesContext)
 
+	// EnterModify_col_visibility is called when entering the modify_col_visibility production.
+	EnterModify_col_visibility(c *Modify_col_visibilityContext)
+
 	// EnterModify_col_properties is called when entering the modify_col_properties production.
 	EnterModify_col_properties(c *Modify_col_propertiesContext)
 
@@ -6033,6 +6036,9 @@ type PlSqlParserListener interface {
 
 	// ExitModify_column_clauses is called when exiting the modify_column_clauses production.
 	ExitModify_column_clauses(c *Modify_column_clausesContext)
+
+	// ExitModify_col_visibility is called when exiting the modify_col_visibility production.
+	ExitModify_col_visibility(c *Modify_col_visibilityContext)
 
 	// ExitModify_col_properties is called when exiting the modify_col_properties production.
 	ExitModify_col_properties(c *Modify_col_propertiesContext)
