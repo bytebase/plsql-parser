@@ -3263,6 +3263,10 @@ func (v *BasePlSqlParserVisitor) VisitModify_column_clauses(ctx *Modify_column_c
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitModify_col_visibility(ctx *Modify_col_visibilityContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitModify_col_properties(ctx *Modify_col_propertiesContext) interface{} {
 	return v.VisitChildren(ctx)
 }

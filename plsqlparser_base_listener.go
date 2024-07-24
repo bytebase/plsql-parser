@@ -5206,6 +5206,12 @@ func (s *BasePlSqlParserListener) EnterModify_column_clauses(ctx *Modify_column_
 // ExitModify_column_clauses is called when production modify_column_clauses is exited.
 func (s *BasePlSqlParserListener) ExitModify_column_clauses(ctx *Modify_column_clausesContext) {}
 
+// EnterModify_col_visibility is called when production modify_col_visibility is entered.
+func (s *BasePlSqlParserListener) EnterModify_col_visibility(ctx *Modify_col_visibilityContext) {}
+
+// ExitModify_col_visibility is called when production modify_col_visibility is exited.
+func (s *BasePlSqlParserListener) ExitModify_col_visibility(ctx *Modify_col_visibilityContext) {}
+
 // EnterModify_col_properties is called when production modify_col_properties is entered.
 func (s *BasePlSqlParserListener) EnterModify_col_properties(ctx *Modify_col_propertiesContext) {}
 

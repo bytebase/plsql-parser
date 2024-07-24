@@ -2449,6 +2449,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#modify_column_clauses.
 	VisitModify_column_clauses(ctx *Modify_column_clausesContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#modify_col_visibility.
+	VisitModify_col_visibility(ctx *Modify_col_visibilityContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#modify_col_properties.
 	VisitModify_col_properties(ctx *Modify_col_propertiesContext) interface{}
 
