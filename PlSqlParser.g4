@@ -6121,6 +6121,7 @@ update_set_clause
 column_based_update_set_clause
     : column_name '=' expression
     | paren_column_list '=' subquery
+    | '(' column_name ')' '=' expression
     ;
 
 delete_statement
