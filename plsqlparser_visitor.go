@@ -3541,6 +3541,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#bind_variable.
 	VisitBind_variable(ctx *Bind_variableContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#general_element.
+	VisitGeneral_element(ctx *General_elementContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#general_element_part.
 	VisitGeneral_element_part(ctx *General_element_partContext) interface{}
 
