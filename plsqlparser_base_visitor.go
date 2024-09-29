@@ -4719,6 +4719,10 @@ func (v *BasePlSqlParserVisitor) VisitBind_variable(ctx *Bind_variableContext) i
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitGeneral_element(ctx *General_elementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitGeneral_element_part(ctx *General_element_partContext) interface{} {
 	return v.VisitChildren(ctx)
 }

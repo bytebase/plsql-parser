@@ -3541,6 +3541,9 @@ type PlSqlParserListener interface {
 	// EnterBind_variable is called when entering the bind_variable production.
 	EnterBind_variable(c *Bind_variableContext)
 
+	// EnterGeneral_element is called when entering the general_element production.
+	EnterGeneral_element(c *General_elementContext)
+
 	// EnterGeneral_element_part is called when entering the general_element_part production.
 	EnterGeneral_element_part(c *General_element_partContext)
 
@@ -7128,6 +7131,9 @@ type PlSqlParserListener interface {
 
 	// ExitBind_variable is called when exiting the bind_variable production.
 	ExitBind_variable(c *Bind_variableContext)
+
+	// ExitGeneral_element is called when exiting the general_element production.
+	ExitGeneral_element(c *General_elementContext)
 
 	// ExitGeneral_element_part is called when exiting the general_element_part production.
 	ExitGeneral_element_part(c *General_element_partContext)

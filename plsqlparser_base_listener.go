@@ -7502,6 +7502,12 @@ func (s *BasePlSqlParserListener) EnterBind_variable(ctx *Bind_variableContext) 
 // ExitBind_variable is called when production bind_variable is exited.
 func (s *BasePlSqlParserListener) ExitBind_variable(ctx *Bind_variableContext) {}
 
+// EnterGeneral_element is called when production general_element is entered.
+func (s *BasePlSqlParserListener) EnterGeneral_element(ctx *General_elementContext) {}
+
+// ExitGeneral_element is called when production general_element is exited.
+func (s *BasePlSqlParserListener) ExitGeneral_element(ctx *General_elementContext) {}
+
 // EnterGeneral_element_part is called when production general_element_part is entered.
 func (s *BasePlSqlParserListener) EnterGeneral_element_part(ctx *General_element_partContext) {}
 
