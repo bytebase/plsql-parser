@@ -8115,7 +8115,7 @@ non_reserved_keywords_pre12c
     | DEALLOCATE
     | DEBUGGER
     | DEBUG
-    | DECLARE
+    // | DECLARE
     | DEC
     | DECOMPOSE
     | DECREMENT
