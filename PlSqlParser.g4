@@ -4901,9 +4901,13 @@ merge_table_partition
     ;
 
 modify_table_partition
-    : MODIFY ( table_partitioning_clauses
-             | (PARTITION partition_name ((ADD | DROP) list_values_clause)? (ADD range_subpartition_desc)? (REBUILD? UNUSABLE LOCAL INDEXES)?)
+    : MODIFY 
+      (
+        | table_partitioning_clauses
+        | (PARTITION partition_name ((ADD | DROP) list_values_clause)? (ADD range_subpartition_desc)? (REBUILD? UNUSABLE LOCAL INDEXES)?)
       )
+      (ONLINE)?
+      (update_index_clauses parallel_clause?)?
     ;
 
 split_table_partition
