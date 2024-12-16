@@ -4912,7 +4912,7 @@ modify_table_partition
           )
       )
       (ONLINE)?
-      (update_index_clauses)?
+      (update_index_clauses parallel_clause?)?
     ;
 
 split_table_partition
