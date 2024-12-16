@@ -4907,12 +4907,12 @@ modify_table_partition
         | PARTITION partition_name
           (
               (ADD | DROP) list_values_clause?
-              | ADD range_subpartition_desc
-              | REBUILD? UNUSABLE LOCAL INDEXES
+            | ADD range_subpartition_desc
+            | REBUILD? UNUSABLE LOCAL INDEXES
           )
-          (ONLINE)?
-          (update_index_clauses)?
       )
+      (ONLINE)?
+      (update_index_clauses)?
     ;
 
 split_table_partition
