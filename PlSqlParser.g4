@@ -3917,7 +3917,15 @@ record_format_info
                     | XMLTAG CHAR_STRING
                 ) et_record_spec_options?
     ;
-    
+
+// The string for external table data properties.
+// Reference: https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/oracle_loader-access-driver.html#GUID-03FD7309-EAE9-4880-9BD1-945B32311478
+et_string
+    : CHAR_STRING
+    | DELIMITED_ID
+    | HEX_STRING_LIT
+    ;
+
 et_record_spec_options
     : et_record_spec_option+
     ;
@@ -4048,8 +4056,8 @@ lls_clause
     ;
     
 delim_spec
-    : ENCLOSED BY CHAR_STRING (AND CHAR_STRING)?
-    | TERMINATED BY (CHAR_STRING | WHITESPACE) (OPTIONALLY? ENCLOSED BY CHAR_STRING (AND CHAR_STRING)? )?
+    : ENCLOSED BY et_string (AND et_string)?
+    | TERMINATED BY (et_string | WHITESPACE) (OPTIONALLY? ENCLOSED BY et_string (AND et_string)? )?
     ;
     
 trim_spec

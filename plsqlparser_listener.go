@@ -1846,6 +1846,9 @@ type PlSqlParserListener interface {
 	// EnterRecord_format_info is called when entering the record_format_info production.
 	EnterRecord_format_info(c *Record_format_infoContext)
 
+	// EnterEt_string is called when entering the et_string production.
+	EnterEt_string(c *Et_stringContext)
+
 	// EnterEt_record_spec_options is called when entering the et_record_spec_options production.
 	EnterEt_record_spec_options(c *Et_record_spec_optionsContext)
 
@@ -5436,6 +5439,9 @@ type PlSqlParserListener interface {
 
 	// ExitRecord_format_info is called when exiting the record_format_info production.
 	ExitRecord_format_info(c *Record_format_infoContext)
+
+	// ExitEt_string is called when exiting the et_string production.
+	ExitEt_string(c *Et_stringContext)
 
 	// ExitEt_record_spec_options is called when exiting the et_record_spec_options production.
 	ExitEt_record_spec_options(c *Et_record_spec_optionsContext)
