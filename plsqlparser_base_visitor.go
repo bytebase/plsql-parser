@@ -2459,6 +2459,10 @@ func (v *BasePlSqlParserVisitor) VisitRecord_format_info(ctx *Record_format_info
 	return v.VisitChildren(ctx)
 }
 
+func (v *BasePlSqlParserVisitor) VisitEt_string(ctx *Et_stringContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BasePlSqlParserVisitor) VisitEt_record_spec_options(ctx *Et_record_spec_optionsContext) interface{} {
 	return v.VisitChildren(ctx)
 }

@@ -3918,6 +3918,12 @@ func (s *BasePlSqlParserListener) EnterRecord_format_info(ctx *Record_format_inf
 // ExitRecord_format_info is called when production record_format_info is exited.
 func (s *BasePlSqlParserListener) ExitRecord_format_info(ctx *Record_format_infoContext) {}
 
+// EnterEt_string is called when production et_string is entered.
+func (s *BasePlSqlParserListener) EnterEt_string(ctx *Et_stringContext) {}
+
+// ExitEt_string is called when production et_string is exited.
+func (s *BasePlSqlParserListener) ExitEt_string(ctx *Et_stringContext) {}
+
 // EnterEt_record_spec_options is called when production et_record_spec_options is entered.
 func (s *BasePlSqlParserListener) EnterEt_record_spec_options(ctx *Et_record_spec_optionsContext) {}
 

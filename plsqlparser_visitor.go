@@ -1846,6 +1846,9 @@ type PlSqlParserVisitor interface {
 	// Visit a parse tree produced by PlSqlParser#record_format_info.
 	VisitRecord_format_info(ctx *Record_format_infoContext) interface{}
 
+	// Visit a parse tree produced by PlSqlParser#et_string.
+	VisitEt_string(ctx *Et_stringContext) interface{}
+
 	// Visit a parse tree produced by PlSqlParser#et_record_spec_options.
 	VisitEt_record_spec_options(ctx *Et_record_spec_optionsContext) interface{}
 
